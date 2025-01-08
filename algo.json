@@ -1,0 +1,661 @@
+{
+  "_dispatchInstances": {
+	"_debugHookTypes": null,
+	"_debugInfo": null,
+	"_debugNeedsRemount": false,
+	"_debugOwner": {
+	  "_debugHookTypes": null,
+	  "_debugInfo": null,
+	  "_debugNeedsRemount": false,
+	  "_debugOwner": [
+		FiberNode
+	  ],
+	  "actualDuration": 0.1578270010650158,
+	  "actualStartTime": 24899897.741749,
+	  "alternate": [
+		FiberNode
+	  ],
+	  "child": [
+		Circular
+	  ],
+	  "childLanes": 0,
+	  "deletions": null,
+	  "dependencies": null,
+	  "elementType": [
+		Function
+		SkiaDomView
+	  ],
+	  "flags": 2097157,
+	  "index": 0,
+	  "key": null,
+	  "lanes": 0,
+	  "memoizedProps": [
+		Object
+	  ],
+	  "memoizedState": null,
+	  "mode": 3,
+	  "pendingProps": [
+		Object
+	  ],
+	  "ref": [
+		Object
+	  ],
+	  "refCleanup": null,
+	  "return": [
+		FiberNode
+	  ],
+	  "selfBaseDuration": 0.10217199847102165,
+	  "sibling": null,
+	  "stateNode": [
+		SkiaDomView
+	  ],
+	  "subtreeFlags": 0,
+	  "tag": 1,
+	  "treeBaseDuration": 0.11526599898934364,
+	  "type": [
+		Function
+		SkiaDomView
+	  ],
+	  "updateQueue": [
+		Object
+	  ]
+	},
+	"actualDuration": 0.0494530014693737,
+	"actualStartTime": 24899897.847997,
+	"alternate": {
+	  "_debugHookTypes": null,
+	  "_debugInfo": null,
+	  "_debugNeedsRemount": false,
+	  "_debugOwner": [
+		FiberNode
+	  ],
+	  "actualDuration": 0.04972400143742561,
+	  "actualStartTime": 24899875.19049,
+	  "alternate": [
+		Circular
+	  ],
+	  "child": null,
+	  "childLanes": 0,
+	  "deletions": null,
+	  "dependencies": null,
+	  "elementType": "SkiaDomView",
+	  "flags": 0,
+	  "index": 0,
+	  "key": null,
+	  "lanes": 0,
+	  "memoizedProps": [
+		Object
+	  ],
+	  "memoizedState": null,
+	  "mode": 3,
+	  "pendingProps": [
+		Object
+	  ],
+	  "ref": null,
+	  "refCleanup": null,
+	  "return": [
+		FiberNode
+	  ],
+	  "selfBaseDuration": 0.01302500069141388,
+	  "sibling": null,
+	  "stateNode": [
+		Object
+	  ],
+	  "subtreeFlags": 0,
+	  "tag": 5,
+	  "treeBaseDuration": 0.01302500069141388,
+	  "type": "SkiaDomView",
+	  "updateQueue": null
+	},
+	"child": null,
+	"childLanes": 0,
+	"deletions": null,
+	"dependencies": null,
+	"elementType": "SkiaDomView",
+	"flags": 0,
+	"index": 0,
+	"key": null,
+	"lanes": 0,
+	"memoizedProps": {
+	  "collapsable": false,
+	  "debug": false,
+	  "mode": "default",
+	  "nativeID": "1002",
+	  "onLayout": [
+		Function
+		anonymous
+	  ],
+	  "onTouchMove": [
+		Function
+		onTouchMove
+	  ],
+	  "onTouchStart": [
+		Function
+		onTouchStart
+	  ],
+	  "opaque": false,
+	  "root": [
+		Object
+	  ],
+	  "style": [
+		Object
+	  ]
+	},
+	"memoizedState": null,
+	"mode": 3,
+	"pendingProps": {
+	  "collapsable": false,
+	  "debug": false,
+	  "mode": "default",
+	  "nativeID": "1002",
+	  "onLayout": [
+		Function
+		anonymous
+	  ],
+	  "onTouchMove": [
+		Function
+		onTouchMove
+	  ],
+	  "onTouchStart": [
+		Function
+		onTouchStart
+	  ],
+	  "opaque": false,
+	  "root": [
+		Object
+	  ],
+	  "style": [
+		Object
+	  ]
+	},
+	"ref": null,
+	"refCleanup": null,
+	"return": {
+	  "_debugHookTypes": null,
+	  "_debugInfo": null,
+	  "_debugNeedsRemount": false,
+	  "_debugOwner": [
+		FiberNode
+	  ],
+	  "actualDuration": 0.1578270010650158,
+	  "actualStartTime": 24899897.741749,
+	  "alternate": [
+		FiberNode
+	  ],
+	  "child": [
+		Circular
+	  ],
+	  "childLanes": 0,
+	  "deletions": null,
+	  "dependencies": null,
+	  "elementType": [
+		Function
+		SkiaDomView
+	  ],
+	  "flags": 2097157,
+	  "index": 0,
+	  "key": null,
+	  "lanes": 0,
+	  "memoizedProps": [
+		Object
+	  ],
+	  "memoizedState": null,
+	  "mode": 3,
+	  "pendingProps": [
+		Object
+	  ],
+	  "ref": [
+		Object
+	  ],
+	  "refCleanup": null,
+	  "return": [
+		FiberNode
+	  ],
+	  "selfBaseDuration": 0.10217199847102165,
+	  "sibling": null,
+	  "stateNode": [
+		SkiaDomView
+	  ],
+	  "subtreeFlags": 0,
+	  "tag": 1,
+	  "treeBaseDuration": 0.11526599898934364,
+	  "type": [
+		Function
+		SkiaDomView
+	  ],
+	  "updateQueue": [
+		Object
+	  ]
+	},
+	"selfBaseDuration": 0.013094000518321991,
+	"sibling": null,
+	"stateNode": {
+	  "canonical": [
+		Object
+	  ],
+	  "node": [
+		Object
+	  ]
+	},
+	"subtreeFlags": 0,
+	"tag": 5,
+	"treeBaseDuration": 0.013094000518321991,
+	"type": "SkiaDomView",
+	"updateQueue": null
+  },
+  "_dispatchListeners": [
+	Function
+	onTouchStart
+  ],
+  "_targetInst": {
+	"_debugHookTypes": null,
+	"_debugInfo": null,
+	"_debugNeedsRemount": false,
+	"_debugOwner": {
+	  "_debugHookTypes": null,
+	  "_debugInfo": null,
+	  "_debugNeedsRemount": false,
+	  "_debugOwner": [
+		FiberNode
+	  ],
+	  "actualDuration": 0.1578270010650158,
+	  "actualStartTime": 24899897.741749,
+	  "alternate": [
+		FiberNode
+	  ],
+	  "child": [
+		Circular
+	  ],
+	  "childLanes": 0,
+	  "deletions": null,
+	  "dependencies": null,
+	  "elementType": [
+		Function
+		SkiaDomView
+	  ],
+	  "flags": 2097157,
+	  "index": 0,
+	  "key": null,
+	  "lanes": 0,
+	  "memoizedProps": [
+		Object
+	  ],
+	  "memoizedState": null,
+	  "mode": 3,
+	  "pendingProps": [
+		Object
+	  ],
+	  "ref": [
+		Object
+	  ],
+	  "refCleanup": null,
+	  "return": [
+		FiberNode
+	  ],
+	  "selfBaseDuration": 0.10217199847102165,
+	  "sibling": null,
+	  "stateNode": [
+		SkiaDomView
+	  ],
+	  "subtreeFlags": 0,
+	  "tag": 1,
+	  "treeBaseDuration": 0.11526599898934364,
+	  "type": [
+		Function
+		SkiaDomView
+	  ],
+	  "updateQueue": [
+		Object
+	  ]
+	},
+	"actualDuration": 0.0494530014693737,
+	"actualStartTime": 24899897.847997,
+	"alternate": {
+	  "_debugHookTypes": null,
+	  "_debugInfo": null,
+	  "_debugNeedsRemount": false,
+	  "_debugOwner": [
+		FiberNode
+	  ],
+	  "actualDuration": 0.04972400143742561,
+	  "actualStartTime": 24899875.19049,
+	  "alternate": [
+		Circular
+	  ],
+	  "child": null,
+	  "childLanes": 0,
+	  "deletions": null,
+	  "dependencies": null,
+	  "elementType": "SkiaDomView",
+	  "flags": 0,
+	  "index": 0,
+	  "key": null,
+	  "lanes": 0,
+	  "memoizedProps": [
+		Object
+	  ],
+	  "memoizedState": null,
+	  "mode": 3,
+	  "pendingProps": [
+		Object
+	  ],
+	  "ref": null,
+	  "refCleanup": null,
+	  "return": [
+		FiberNode
+	  ],
+	  "selfBaseDuration": 0.01302500069141388,
+	  "sibling": null,
+	  "stateNode": [
+		Object
+	  ],
+	  "subtreeFlags": 0,
+	  "tag": 5,
+	  "treeBaseDuration": 0.01302500069141388,
+	  "type": "SkiaDomView",
+	  "updateQueue": null
+	},
+	"child": null,
+	"childLanes": 0,
+	"deletions": null,
+	"dependencies": null,
+	"elementType": "SkiaDomView",
+	"flags": 0,
+	"index": 0,
+	"key": null,
+	"lanes": 0,
+	"memoizedProps": {
+	  "collapsable": false,
+	  "debug": false,
+	  "mode": "default",
+	  "nativeID": "1002",
+	  "onLayout": [
+		Function
+		anonymous
+	  ],
+	  "onTouchMove": [
+		Function
+		onTouchMove
+	  ],
+	  "onTouchStart": [
+		Function
+		onTouchStart
+	  ],
+	  "opaque": false,
+	  "root": [
+		Object
+	  ],
+	  "style": [
+		Object
+	  ]
+	},
+	"memoizedState": null,
+	"mode": 3,
+	"pendingProps": {
+	  "collapsable": false,
+	  "debug": false,
+	  "mode": "default",
+	  "nativeID": "1002",
+	  "onLayout": [
+		Function
+		anonymous
+	  ],
+	  "onTouchMove": [
+		Function
+		onTouchMove
+	  ],
+	  "onTouchStart": [
+		Function
+		onTouchStart
+	  ],
+	  "opaque": false,
+	  "root": [
+		Object
+	  ],
+	  "style": [
+		Object
+	  ]
+	},
+	"ref": null,
+	"refCleanup": null,
+	"return": {
+	  "_debugHookTypes": null,
+	  "_debugInfo": null,
+	  "_debugNeedsRemount": false,
+	  "_debugOwner": [
+		FiberNode
+	  ],
+	  "actualDuration": 0.1578270010650158,
+	  "actualStartTime": 24899897.741749,
+	  "alternate": [
+		FiberNode
+	  ],
+	  "child": [
+		Circular
+	  ],
+	  "childLanes": 0,
+	  "deletions": null,
+	  "dependencies": null,
+	  "elementType": [
+		Function
+		SkiaDomView
+	  ],
+	  "flags": 2097157,
+	  "index": 0,
+	  "key": null,
+	  "lanes": 0,
+	  "memoizedProps": [
+		Object
+	  ],
+	  "memoizedState": null,
+	  "mode": 3,
+	  "pendingProps": [
+		Object
+	  ],
+	  "ref": [
+		Object
+	  ],
+	  "refCleanup": null,
+	  "return": [
+		FiberNode
+	  ],
+	  "selfBaseDuration": 0.10217199847102165,
+	  "sibling": null,
+	  "stateNode": [
+		SkiaDomView
+	  ],
+	  "subtreeFlags": 0,
+	  "tag": 1,
+	  "treeBaseDuration": 0.11526599898934364,
+	  "type": [
+		Function
+		SkiaDomView
+	  ],
+	  "updateQueue": [
+		Object
+	  ]
+	},
+	"selfBaseDuration": 0.013094000518321991,
+	"sibling": null,
+	"stateNode": {
+	  "canonical": [
+		Object
+	  ],
+	  "node": [
+		Object
+	  ]
+	},
+	"subtreeFlags": 0,
+	"tag": 5,
+	"treeBaseDuration": 0.013094000518321991,
+	"type": "SkiaDomView",
+	"updateQueue": null
+  },
+  "bubbles": undefined,
+  "cancelable": undefined,
+  "currentTarget": {
+	"__internalInstanceHandle": {
+	  "_debugHookTypes": null,
+	  "_debugInfo": null,
+	  "_debugNeedsRemount": false,
+	  "_debugOwner": [
+		FiberNode
+	  ],
+	  "actualDuration": 0.0494530014693737,
+	  "actualStartTime": 24899897.847997,
+	  "alternate": [
+		FiberNode
+	  ],
+	  "child": null,
+	  "childLanes": 0,
+	  "deletions": null,
+	  "dependencies": null,
+	  "elementType": "SkiaDomView",
+	  "flags": 0,
+	  "index": 0,
+	  "key": null,
+	  "lanes": 0,
+	  "memoizedProps": [
+		Object
+	  ],
+	  "memoizedState": null,
+	  "mode": 3,
+	  "pendingProps": [
+		Object
+	  ],
+	  "ref": null,
+	  "refCleanup": null,
+	  "return": [
+		FiberNode
+	  ],
+	  "selfBaseDuration": 0.013094000518321991,
+	  "sibling": null,
+	  "stateNode": [
+		Object
+	  ],
+	  "subtreeFlags": 0,
+	  "tag": 5,
+	  "treeBaseDuration": 0.013094000518321991,
+	  "type": "SkiaDomView",
+	  "updateQueue": null
+	},
+	"__nativeTag": 640,
+	"_viewConfig": {
+	  "Commands": [
+		Object
+	  ],
+	  "bubblingEventTypes": [
+		Object
+	  ],
+	  "directEventTypes": [
+		Object
+	  ],
+	  "uiViewClassName": "SkiaDomView",
+	  "validAttributes": [
+		Object
+	  ]
+	}
+  },
+  "defaultPrevented": undefined,
+  "dispatchConfig": {
+	"phasedRegistrationNames": {
+	  "bubbled": "onTouchStart",
+	  "captured": "onTouchStartCapture"
+	}
+  },
+  "eventPhase": undefined,
+  "isDefaultPrevented": [
+	Function
+	functionThatReturnsFalse
+  ],
+  "isPropagationStopped": [
+	Function
+	functionThatReturnsFalse
+  ],
+  "isTrusted": undefined,
+  "nativeEvent": {
+	"changedTouches": [
+	  [
+		Object
+	  ]
+	],
+	"identifier": 0,
+	"locationX": 117.71056365966797,
+	"locationY": 681.1138305664062,
+	"pageX": 117.71056365966797,
+	"pageY": 741.6852416992188,
+	"target": 640,
+	"targetSurface": 11,
+	"timestamp": 24905296,
+	"touches": [
+	  [
+		Object
+	  ]
+	]
+  },
+  "target": {
+	"__internalInstanceHandle": {
+	  "_debugHookTypes": null,
+	  "_debugInfo": null,
+	  "_debugNeedsRemount": false,
+	  "_debugOwner": [
+		FiberNode
+	  ],
+	  "actualDuration": 0.0494530014693737,
+	  "actualStartTime": 24899897.847997,
+	  "alternate": [
+		FiberNode
+	  ],
+	  "child": null,
+	  "childLanes": 0,
+	  "deletions": null,
+	  "dependencies": null,
+	  "elementType": "SkiaDomView",
+	  "flags": 0,
+	  "index": 0,
+	  "key": null,
+	  "lanes": 0,
+	  "memoizedProps": [
+		Object
+	  ],
+	  "memoizedState": null,
+	  "mode": 3,
+	  "pendingProps": [
+		Object
+	  ],
+	  "ref": null,
+	  "refCleanup": null,
+	  "return": [
+		FiberNode
+	  ],
+	  "selfBaseDuration": 0.013094000518321991,
+	  "sibling": null,
+	  "stateNode": [
+		Object
+	  ],
+	  "subtreeFlags": 0,
+	  "tag": 5,
+	  "treeBaseDuration": 0.013094000518321991,
+	  "type": "SkiaDomView",
+	  "updateQueue": null
+	},
+	"__nativeTag": 640,
+	"_viewConfig": {
+	  "Commands": [
+		Object
+	  ],
+	  "bubblingEventTypes": [
+		Object
+	  ],
+	  "directEventTypes": [
+		Object
+	  ],
+	  "uiViewClassName": "SkiaDomView",
+	  "validAttributes": [
+		Object
+	  ]
+	}
+  },
+  "timeStamp": 1736361844958,
+  "type": undefined
+}
