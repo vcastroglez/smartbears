@@ -1,6 +1,6 @@
 import React, {Children, useCallback, useRef, useState} from "react";
 import {Canvas, Group, PaintStyle, Path, Skia, SkPaint, SkPath} from "@shopify/react-native-skia";
-import {SafeAreaView, StyleSheet, Text, useWindowDimensions} from "react-native";
+import {SafeAreaView, StyleSheet} from "react-native";
 
 interface IPath {
 	path: SkPath;
@@ -16,8 +16,6 @@ const paint = () => {
 	return paint;
 }
 const App = () => {
-	const {height, width} = useWindowDimensions()
-
 	const styles = StyleSheet.create({
 		container: {
 			paddingVertical: '10%',
@@ -25,8 +23,6 @@ const App = () => {
 		},
 	})
 
-	const r = width * 0.33;
-	let [text, setText] = useState("FUCK");
 	const [paths, setPaths] = useState<IPath[]>([]);
 	const currentPath = useRef<SkPath | null>(null)
 	const onTouchStart = (event: any) => {
@@ -55,7 +51,6 @@ const App = () => {
 
 	return (
 		<SafeAreaView style={styles.container} >
-			<Text >{text}</Text >
 			<Canvas style={styles.container}
 					onTouchStart={onTouchStart}
 					onTouchMove={onTouchMove}
