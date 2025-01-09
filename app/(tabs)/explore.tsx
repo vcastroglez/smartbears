@@ -126,6 +126,8 @@ export default function () {
 			width: 30,
 			height: 30,
 			marginHorizontal: 5,
+			borderColor: "#3b3b3b",
+			borderWidth: 1,
 		},
 		selectedColorBox: {
 			borderRadius: 20,
@@ -133,12 +135,12 @@ export default function () {
 			height: 30,
 			marginHorizontal: 5,
 			borderColor: "#000",
-			borderWidth: 3,
+			borderWidth: 4,
 		},
 		simpleBtn: {
-			marginLeft: 25,
-			paddingLeft: 2,
+			marginLeft: 45,
 			borderRadius: 5,
+			borderWidth: 1,
 			backgroundColor: 'white',
 			width: 30,
 			height: 30,
@@ -163,7 +165,7 @@ export default function () {
 
 	// @ts-ignore
 	return (
-		<SafeAreaView style={{flex: 1, flexDirection: 'column'}} >
+		<SafeAreaView style={{flex: 1, flexDirection: 'column', backgroundColor: 'white'}} >
 			<GestureHandlerRootView style={{flex: 1, flexGrow: 1}} >
 				<GestureDetector gesture={pan} >
 					<Canvas style={{flex: 1}} ref={pathsCanvas} >
@@ -184,9 +186,9 @@ export default function () {
 			</GestureHandlerRootView >
 			<ScrollView horizontal={true} style={{
 				flex: 1,
-				maxHeight: '5%',
+				maxHeight: '6%',
 				padding: '2%',
-				paddingLeft: '5%',
+				paddingLeft: '6%',
 				flexDirection: 'row',
 				width: '100%'
 			}} >
@@ -194,7 +196,7 @@ export default function () {
 					colors.map((color) => <TouchableOpacity key={color} onPress={() => {
 						setCurrentColor(color)
 					}}
-															style={[{backgroundColor: color}, currentColor == color ? styles.selectedColorBox : null, styles.colorBox]} />)
+															style={[{backgroundColor: color}, styles.colorBox, currentColor == color ? styles.selectedColorBox : null]} />)
 				}
 			</ScrollView >
 			<ScrollView horizontal={true} style={{
