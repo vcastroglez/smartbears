@@ -1,10 +1,14 @@
 import React, {useCallback, useEffect, useState} from "react";
-import {Animated, Button, Pressable, SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {Alert, Animated, SafeAreaView, StyleSheet, Text, TouchableOpacity, useWindowDimensions} from "react-native";
 import {Gesture, GestureDetector, GestureHandlerRootView} from "react-native-gesture-handler";
 import {runOnJS, useSharedValue} from "react-native-reanimated";
+import {downloadBase64, shareImage} from "@/hooks/useDownloadBase64";
 
 import {
-	Canvas, Group,
+	Canvas,
+	Group,
+	Image,
+	ImageFormat,
 	notifyChange,
 	PaintStyle,
 	Path,
@@ -12,19 +16,21 @@ import {
 	SkPaint,
 	SkPath,
 	StrokeCap,
-	StrokeJoin, useCanvasRef
+	StrokeJoin,
+	useCanvasRef, useImage
 } from "@shopify/react-native-skia";
 import ScrollView = Animated.ScrollView;
+import {IconSymbol} from "@/components/ui/IconSymbol";
 
 interface IPath {
 	path: SkPath;
 	paint: SkPaint;
 }
 
-const paint = (color = '#000000') => {
+const paint = (color = '#000000', stroke = 4) => {
 	const paint = Skia.Paint();
 	paint.setStyle(PaintStyle.Stroke);
-	paint.setStrokeWidth(4);
+	paint.setStrokeWidth(stroke);
 	paint.setColor(Skia.Color(color))
 	paint.setStrokeCap(StrokeCap.Round);
 	paint.setStrokeJoin(StrokeJoin.Round);
@@ -34,9 +40,19 @@ const paint = (color = '#000000') => {
 export default function () {
 	const currentPath = useSharedValue(Skia.Path.Make().moveTo(0, 0));
 	const [currentColor, setCurrentColor] = useState('#000000');
+	const [currentStroke, setCurrentStroke] = useState(4);
 	const [currentPaint, setCurrentPaint] = useState<SkPaint>(paint());
 	const [paths, setPaths] = useState<IPath[]>([]);
 	const pathsCanvas = useCanvasRef();
+	const image = useImage(require("@/assets/images/task1.jpeg"));
+
+	const changeStroke = (diff: number) => {
+		setCurrentStroke((old) => {
+			const newValue = old + diff;
+			if (newValue < 1) return 1;
+			return newValue;
+		})
+	}
 
 	const undo = useCallback(() => {
 		if (!paths.length) return;
@@ -52,16 +68,38 @@ export default function () {
 	}, [paths]);
 
 	useEffect(() => {
-		setCurrentPaint(paint(currentColor));
-	}, [currentColor]);
+		setCurrentPaint(paint(currentColor, currentStroke));
+	}, [currentColor, currentStroke]);
 
 	const savePath = (pathToSave: SkPath) => {
 		setPaths((old) => {
 			return [...old, {
 				path: pathToSave,
-				paint: paint(currentColor),
+				paint: paint(currentColor, currentStroke),
 			}]
 		})
+	}
+
+	const shareCanvas = () => {
+		if (!pathsCanvas) return;
+
+		let pngURL = pathsCanvas.current?.makeImageSnapshot().encodeToBase64(ImageFormat.PNG)
+		console.log(pngURL);//vla
+		shareImage(pngURL!).then(r => console.log(r));
+	}
+
+	const saveCanvas = () => {
+		if (!pathsCanvas) return;
+
+		let pngURL = pathsCanvas.current?.makeImageSnapshot().encodeToBase64(ImageFormat.PNG)
+		console.log(pngURL);//vla
+		downloadBase64(pngURL!).then(r => {
+			Alert.alert(
+				"Success",
+				"Image saved to gallery successfully!",
+				[{text: "OK"}]
+			);
+		});
 	}
 
 	const pan = Gesture.Pan()
@@ -89,45 +127,58 @@ export default function () {
 			height: 30,
 			marginHorizontal: 5,
 		},
+		selectedColorBox: {
+			borderRadius: 20,
+			width: 30,
+			height: 30,
+			marginHorizontal: 5,
+			borderColor: "#000",
+			borderWidth: 3,
+		},
 		simpleBtn: {
-			marginLeft: 20,
-			paddingLeft: 7,
+			marginLeft: 25,
+			paddingLeft: 2,
 			borderRadius: 5,
 			backgroundColor: 'white',
-			width: 50,
+			width: 30,
 			height: 30,
 			justifyContent: 'center',
 		}
 	})
 
+	const transparency = 'DF';
 	const colors = [
-		'#ffffff',
-		'#777777',
-		'#000000',
-		'#ff0000',
-		'#ff7777',
-		'#00ff00',
-		'#77ff77',
-		'#0000ff',
-		'#7777ff',
+		'#ffffff' + transparency,
+		'#777777' + transparency,
+		'#000000' + transparency,
+		'#ff0000' + transparency,
+		'#ff7777' + transparency,
+		'#00ff00' + transparency,
+		'#77ff77' + transparency,
+		'#0000ff' + transparency,
+		'#7777ff' + transparency,
 	];
 
+	const {width, height} = useWindowDimensions();
+
+	// @ts-ignore
 	return (
-		<SafeAreaView style={{flex: 1, flexDirection: 'column', backgroundColor: 'lightgray'}} >
-			<Canvas style={StyleSheet.absoluteFill} ref={pathsCanvas} >
-				<Group blendMode="multiply" >
-					{
-						paths.map((path, index) => <Path key={index} path={path.path} paint={path.paint} />)
-					}
-				</Group >
-			</Canvas >
+		<SafeAreaView style={{flex: 1, flexDirection: 'column'}} >
 			<GestureHandlerRootView style={{flex: 1, flexGrow: 1}} >
 				<GestureDetector gesture={pan} >
-					<Canvas style={StyleSheet.absoluteFill} >
-						<Path
-							path={currentPath}
-							paint={currentPaint}
-						/>
+					<Canvas style={{flex: 1}} ref={pathsCanvas} >
+						<Group blendMode="multiply" >
+							<Image image={image} fit="contain"
+								   x={0} y={0}
+								   rect={{x: 0, y: 0, width: width, height: height}} height={height} width={width} />
+							{
+								paths.map((path, index) => <Path key={index} path={path.path} paint={path.paint} />)
+							}
+							<Path
+								path={currentPath}
+								paint={currentPaint}
+							/>
+						</Group >
 					</Canvas >
 				</GestureDetector >
 			</GestureHandlerRootView >
@@ -142,7 +193,8 @@ export default function () {
 				{
 					colors.map((color) => <TouchableOpacity key={color} onPress={() => {
 						setCurrentColor(color)
-					}} style={[{backgroundColor: color}, styles.colorBox]} />)
+					}}
+															style={[{backgroundColor: color}, currentColor == color ? styles.selectedColorBox : null, styles.colorBox]} />)
 				}
 			</ScrollView >
 			<ScrollView horizontal={true} style={{
@@ -152,10 +204,22 @@ export default function () {
 				width: '100%',
 			}} >
 				<TouchableOpacity style={styles.simpleBtn} onPress={undo} >
-					<Text >Undo</Text >
+					<IconSymbol color={'#000'} size={28} name={"undo"} ></IconSymbol >
 				</TouchableOpacity >
 				<TouchableOpacity style={styles.simpleBtn} onPress={() => setPaths([])} >
-					<Text >Reset</Text >
+					<IconSymbol color={'#000'} size={28} name={"refresh"} ></IconSymbol >
+				</TouchableOpacity >
+				{/*<TouchableOpacity style={styles.simpleBtn} onPress={shareCanvas} >*/}
+				{/*	<Text >Share</Text >*/}
+				{/*</TouchableOpacity >*/}
+				<TouchableOpacity style={styles.simpleBtn} onPress={saveCanvas} >
+					<IconSymbol color={'#000'} size={28} name={"save"} ></IconSymbol >
+				</TouchableOpacity >
+				<TouchableOpacity style={styles.simpleBtn} onPress={() => changeStroke(-2)} >
+					<IconSymbol color={'#000'} size={28} name={"remove"} ></IconSymbol >
+				</TouchableOpacity >
+				<TouchableOpacity style={styles.simpleBtn} onPress={() => changeStroke(2)} >
+					<IconSymbol color={'#000'} size={28} name={"add"} ></IconSymbol >
 				</TouchableOpacity >
 			</ScrollView >
 		</SafeAreaView >
