@@ -27,7 +27,7 @@ interface IPath {
 	paint: SkPaint;
 }
 
-const paint = (color = '#000000', stroke = 4) => {
+const paint = (color = '#000000', stroke = 8) => {
 	const paint = Skia.Paint();
 	paint.setStyle(PaintStyle.Stroke);
 	paint.setStrokeWidth(stroke);
@@ -41,7 +41,7 @@ const paint = (color = '#000000', stroke = 4) => {
 export default function ({imagePath}) {
 	const currentPath = useSharedValue(Skia.Path.Make().moveTo(0, 0));
 	const [currentColor, setCurrentColor] = useState('#000000');
-	const [currentStroke, setCurrentStroke] = useState(4);
+	const [currentStroke, setCurrentStroke] = useState(8);
 	const [currentPaint, setCurrentPaint] = useState<SkPaint>(paint());
 	const [paths, setPaths] = useState<IPath[]>([]);
 	const [image, setImage] = useState<SkImage>();
@@ -129,10 +129,9 @@ export default function ({imagePath}) {
 
 	const styles = StyleSheet.create({
 		colorBox: {
-			borderRadius: 20,
-			width: 30,
-			height: 30,
-			marginHorizontal: 5,
+			borderRadius: 15,
+			width: 46,
+			height: 46,
 			borderColor: "#3b3b3b",
 			borderWidth: 1,
 		},
@@ -155,17 +154,17 @@ export default function ({imagePath}) {
 		}
 	})
 
-	const transparency = 'DF';
+	const transparency = 'FF';
 	const colors = [
 		'#ffffff' + transparency,
-		'#777777' + transparency,
 		'#000000' + transparency,
 		'#ff0000' + transparency,
-		'#ff7777' + transparency,
+		'#ffff00' + transparency,
+		'#ff8800' + transparency,
 		'#00ff00' + transparency,
-		'#77ff77' + transparency,
+		'#88ffff' + transparency,
 		'#0000ff' + transparency,
-		'#7777ff' + transparency,
+		'#ff00ff' + transparency,
 	];
 
 	const {width, height} = useWindowDimensions();
@@ -193,8 +192,6 @@ export default function ({imagePath}) {
 			<ScrollView horizontal={true} style={{
 				flex: 1,
 				maxHeight: '6%',
-				padding: '2%',
-				paddingLeft: '6%',
 				flexDirection: 'row',
 				width: '100%'
 			}} >
