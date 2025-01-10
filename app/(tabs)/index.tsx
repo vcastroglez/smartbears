@@ -1,7 +1,7 @@
 import {useImage} from "@shopify/react-native-skia";
 import {
 	Animated,
-	Image,
+	Image, ScrollView,
 	StyleSheet,
 	Text,
 	TouchableOpacity,
@@ -49,10 +49,11 @@ const ImageDemo = () => {
 
 	return (
 		<>
-			<Text >All tasks:</Text >
-			<View style={[styles.scrollView, StyleSheet.absoluteFill]} >
-				<AllTasks />
-			</View >
+			<ScrollView>
+				<View style={[styles.scrollView]} >
+					<AllTasks />
+				</View >
+			</ScrollView>
 		</>
 	);
 };

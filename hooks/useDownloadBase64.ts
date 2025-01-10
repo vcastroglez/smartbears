@@ -8,7 +8,20 @@ export const shareImage = async (base64String: string) => {
 	});
 }
 export const ALL_IMAGES = [
-	require('@/assets/images/tasks/task1.jpeg'),
+	require('@/assets/images/tasks/1.png'),
+	require('@/assets/images/tasks/2.png'),
+	require('@/assets/images/tasks/3.png'),
+	require('@/assets/images/tasks/4.png'),
+	require('@/assets/images/tasks/5.png'),
+	require('@/assets/images/tasks/6.png'),
+	require('@/assets/images/tasks/7.png'),
+	require('@/assets/images/tasks/8.png'),
+	require('@/assets/images/tasks/9.png'),
+	require('@/assets/images/tasks/10.png'),
+	require('@/assets/images/tasks/11.png'),
+	require('@/assets/images/tasks/12.png'),
+	require('@/assets/images/tasks/13.png'),
+	require('@/assets/images/tasks/14.png'),
 ]
 
 export const getTaskImage = (index: any) => {
