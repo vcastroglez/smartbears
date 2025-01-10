@@ -7,6 +7,15 @@ export const shareImage = async (base64String: string) => {
 		url: `data:image/png;base64,${base64String}`
 	});
 }
+export const ALL_IMAGES = [
+	require('@/assets/images/tasks/task1.jpeg'),
+]
+
+export const getTaskImage = (index: any) => {
+
+
+	return ALL_IMAGES[index] ?? ALL_IMAGES[0]
+}
 export const downloadBase64 = async (base64String: string) => {
 	try {
 		// Request permissions
