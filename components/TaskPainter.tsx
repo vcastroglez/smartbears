@@ -177,7 +177,7 @@ export default function ({imagePath}) {
 				<GestureDetector gesture={pan} >
 					<Canvas style={{flex: 1}} ref={pathsCanvas} >
 						<Group blendMode="multiply" >
-							{image && <Image image={image} fit="contain"
+							{!!image && <Image image={image} fit="contain"
 								   rect={{x: 0, y: -50, width: width, height: height}} height={height} width={width} />}
 							{
 								paths.map((path, index) => <Path key={index} path={path.path} paint={path.paint} />)
