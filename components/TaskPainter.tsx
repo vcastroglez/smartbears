@@ -1,8 +1,8 @@
 import React, {useCallback, useEffect, useState} from "react";
-import {Alert, Animated, SafeAreaView, StyleSheet, Text, TouchableOpacity, useWindowDimensions} from "react-native";
+import {Alert, Animated, SafeAreaView, StyleSheet, TouchableOpacity, useWindowDimensions} from "react-native";
 import {Gesture, GestureDetector, GestureHandlerRootView} from "react-native-gesture-handler";
 import {runOnJS, useSharedValue} from "react-native-reanimated";
-import {downloadBase64, shareImage} from "@/hooks/useDownloadBase64";
+import {downloadBase64} from "@/hooks/useDownloadBase64";
 
 import {
 	Canvas,
@@ -21,11 +21,7 @@ import {
 } from "@shopify/react-native-skia";
 import ScrollView = Animated.ScrollView;
 import {IconSymbol} from "@/components/ui/IconSymbol";
-
-interface IPath {
-	path: SkPath;
-	paint: SkPaint;
-}
+import {IPathType} from "@/types/images";
 
 const paint = (color = '#000000', stroke = 8) => {
 	const paint = Skia.Paint();
@@ -43,16 +39,16 @@ export default function ({imagePath}) {
 	const [currentColor, setCurrentColor] = useState('#000000');
 	const [currentStroke, setCurrentStroke] = useState(8);
 	const [currentPaint, setCurrentPaint] = useState<SkPaint>(paint());
-	const [paths, setPaths] = useState<IPath[]>([]);
+	const [paths, setPaths] = useState<IPathType[]>([]);
 	const [image, setImage] = useState<SkImage>();
 	const pathsCanvas = useCanvasRef();
 	const asset = imagePath ? useImage(imagePath) : undefined;
 
 	useEffect(() => {
-		if(!asset) return;
+		if (!asset) return;
 		setImage(asset);
 	}, [asset]);
-	
+
 	const changeStroke = (diff: number) => {
 		setCurrentStroke((old) => {
 			const newValue = old + diff;
@@ -63,7 +59,6 @@ export default function ({imagePath}) {
 
 	const undo = useCallback(() => {
 		if (!paths.length) return;
-		console.log(paths.length);//vla
 
 		setPaths((old) => {
 			old.pop();
@@ -87,20 +82,11 @@ export default function ({imagePath}) {
 		})
 	}
 
-	const shareCanvas = () => {
-		if (!pathsCanvas) return;
-
-		let pngURL = pathsCanvas.current?.makeImageSnapshot().encodeToBase64(ImageFormat.PNG)
-		console.log(pngURL);//vla
-		shareImage(pngURL!).then(r => console.log(r));
-	}
-
 	const saveCanvas = () => {
 		if (!pathsCanvas) return;
 
 		let pngURL = pathsCanvas.current?.makeImageSnapshot().encodeToBase64(ImageFormat.PNG)
-		console.log(pngURL);//vla
-		downloadBase64(pngURL!).then(r => {
+		downloadBase64(pngURL!).then(() => {
 			Alert.alert(
 				"Success",
 				"Image saved to gallery successfully!",
@@ -121,7 +107,7 @@ export default function ({imagePath}) {
 			currentPath.value.lineTo(e.x, e.y);
 			notifyChange(currentPath);
 		})
-		.onEnd((e) => {
+		.onEnd(() => {
 			runOnJS(savePath)(currentPath.value.copy());
 			currentPath.value.reset();
 			notifyChange(currentPath);
@@ -168,7 +154,6 @@ export default function ({imagePath}) {
 
 	const {width, height} = useWindowDimensions();
 
-	// @ts-ignore
 	return (
 		<SafeAreaView style={{flex: 1, flexDirection: 'column', backgroundColor: 'white'}} >
 			<GestureHandlerRootView style={{flex: 1, flexGrow: 1}} >
@@ -176,7 +161,8 @@ export default function ({imagePath}) {
 					<Canvas style={{flex: 1}} ref={pathsCanvas} >
 						<Group blendMode="multiply" >
 							{!!image && <Image image={image} fit="contain"
-								   rect={{x: 0, y: -50, width: width, height: height}} height={height} width={width} />}
+											   rect={{x: 0, y: -50, width: width, height: height}} height={height}
+											   width={width} />}
 							{
 								paths.map((path, index) => <Path key={index} path={path.path} paint={path.paint} />)
 							}
@@ -213,9 +199,6 @@ export default function ({imagePath}) {
 				<TouchableOpacity style={styles.simpleBtn} onPress={() => setPaths([])} >
 					<IconSymbol color={'#000'} size={28} name={"refresh"} ></IconSymbol >
 				</TouchableOpacity >
-				{/*<TouchableOpacity style={styles.simpleBtn} onPress={shareCanvas} >*/}
-				{/*	<Text >Share</Text >*/}
-				{/*</TouchableOpacity >*/}
 				<TouchableOpacity style={styles.simpleBtn} onPress={saveCanvas} >
 					<IconSymbol color={'#000'} size={28} name={"save"} ></IconSymbol >
 				</TouchableOpacity >

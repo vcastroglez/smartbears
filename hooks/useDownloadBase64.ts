@@ -7,43 +7,7 @@ export const shareImage = async (base64String: string) => {
 		url: `data:image/png;base64,${base64String}`
 	});
 }
-export const ALL_IMAGES = [
-	require('@/assets/images/tasks/1.png'),
-	require('@/assets/images/tasks/2.png'),
-	require('@/assets/images/tasks/3.png'),
-	require('@/assets/images/tasks/4.png'),
-	require('@/assets/images/tasks/5.png'),
-	require('@/assets/images/tasks/6.png'),
-	require('@/assets/images/tasks/7.png'),
-	require('@/assets/images/tasks/8.png'),
-	require('@/assets/images/tasks/9.png'),
-	require('@/assets/images/tasks/10.png'),
-	require('@/assets/images/tasks/11.png'),
-	require('@/assets/images/tasks/12.png'),
-	require('@/assets/images/tasks/13.png'),
-	require('@/assets/images/tasks/14.png'),
-	require('@/assets/images/tasks/15.png'),
-	require('@/assets/images/tasks/16.png'),
-	require('@/assets/images/tasks/17.png'),
-	require('@/assets/images/tasks/18.png'),
-	require('@/assets/images/tasks/19.png'),
-	require('@/assets/images/tasks/20.png'),
-	require('@/assets/images/tasks/21.png'),
-	require('@/assets/images/tasks/22.png'),
-	require('@/assets/images/tasks/23.png'),
-	require('@/assets/images/tasks/24.png'),
-	require('@/assets/images/tasks/25.png'),
-	require('@/assets/images/tasks/26.png'),
-	require('@/assets/images/tasks/27.png'),
-	require('@/assets/images/tasks/28.png'),
-	require('@/assets/images/tasks/29.png'),
-]
 
-export const getTaskImage = (index: any) => {
-
-
-	return ALL_IMAGES[index] ?? ALL_IMAGES[0]
-}
 export const downloadBase64 = async (base64String: string) => {
 	try {
 		// Request permissions

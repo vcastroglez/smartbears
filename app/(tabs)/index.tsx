@@ -1,6 +1,4 @@
-import {useImage} from "@shopify/react-native-skia";
 import {
-	Animated,
 	Image, ScrollView,
 	StyleSheet,
 	Text,
@@ -9,17 +7,33 @@ import {
 	View
 } from "react-native";
 import {router} from "expo-router";
-import {ALL_IMAGES} from "@/hooks/useDownloadBase64";
+import {useTaskImages} from "@/hooks/useTaskImages";
+import React, {useEffect} from "react";
 
 const ImageDemo = () => {
 	const {width} = useWindowDimensions();
+	const {
+		images,
+		isLoading,
+		refreshImages,
+	} = useTaskImages();
+
+	useEffect(() => {
+		if (images.length) return;
+		refreshImages();
+	}, [images]);
+
+	if (isLoading || !images) return (
+		<Text >IS LOADING</Text >
+	);
 
 	const AllTasks = () => {
 		let toReturn = [];
-		for (let i = 0; i < ALL_IMAGES.length; i++) {
+		for (let i = 0; i < images.length; i++) {
+			const fullUrl = images[i].full_url;
 			toReturn.push(
-				<TouchableOpacity key={i} onPress={() => router.push({pathname: "/draw", params: {task: i}})} >
-					<Image resizeMethod={'auto'} style={styles.taskImg} source={ALL_IMAGES[i]} />
+				<TouchableOpacity key={i} onPress={() => router.push({pathname: "/draw", params: {task: fullUrl}})} >
+					<Image resizeMethod={'auto'} style={styles.taskImg} source={{uri: fullUrl}} />
 				</TouchableOpacity >
 			)
 		}
@@ -49,11 +63,11 @@ const ImageDemo = () => {
 
 	return (
 		<>
-			<ScrollView>
+			<ScrollView >
 				<View style={[styles.scrollView]} >
 					<AllTasks />
 				</View >
-			</ScrollView>
+			</ScrollView >
 		</>
 	);
 };
