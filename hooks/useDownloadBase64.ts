@@ -22,6 +22,21 @@ export const ALL_IMAGES = [
 	require('@/assets/images/tasks/12.png'),
 	require('@/assets/images/tasks/13.png'),
 	require('@/assets/images/tasks/14.png'),
+	require('@/assets/images/tasks/15.png'),
+	require('@/assets/images/tasks/16.png'),
+	require('@/assets/images/tasks/17.png'),
+	require('@/assets/images/tasks/18.png'),
+	require('@/assets/images/tasks/19.png'),
+	require('@/assets/images/tasks/20.png'),
+	require('@/assets/images/tasks/21.png'),
+	require('@/assets/images/tasks/22.png'),
+	require('@/assets/images/tasks/23.png'),
+	require('@/assets/images/tasks/24.png'),
+	require('@/assets/images/tasks/25.png'),
+	require('@/assets/images/tasks/26.png'),
+	require('@/assets/images/tasks/27.png'),
+	require('@/assets/images/tasks/28.png'),
+	require('@/assets/images/tasks/29.png'),
 ]
 
 export const getTaskImage = (index: any) => {
