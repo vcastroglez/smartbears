@@ -136,12 +136,11 @@ export default function ({imagePath}) {
 			borderWidth: 1,
 		},
 		selectedColorBox: {
-			borderRadius: 20,
-			width: 30,
-			height: 30,
-			marginHorizontal: 5,
-			borderColor: "#000",
+			borderRadius: 15,
+			width: 46,
+			height: 46,
 			borderWidth: 4,
+			borderColor: "#000",
 		},
 		simpleBtn: {
 			marginLeft: 45,
