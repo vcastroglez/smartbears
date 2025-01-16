@@ -17,7 +17,7 @@ export interface UseTaskImagesReturnType {
 	images: TaskImageType[];
 	isLoading: boolean;
 	error: string | null;
-	refreshImages: () => Promise<void>;
+	refreshImages: () => Promise<TaskImageType[]>;
 }
 
 export interface IPathType {

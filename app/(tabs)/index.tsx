@@ -1,4 +1,5 @@
 import {
+	Button,
 	Image, ScrollView,
 	StyleSheet,
 	Text,
@@ -7,21 +8,41 @@ import {
 	View
 } from "react-native";
 import {router} from "expo-router";
-import {useTaskImages} from "@/hooks/useTaskImages";
-import React, {useEffect} from "react";
+import {getFiles, useTaskImages} from "@/hooks/useTaskImages";
+import React, {useEffect, useState} from "react";
 
 const ImageDemo = () => {
+	const [internalLoading, setInternalLoading] = useState(true);
+	const [existingFiles, setExistingFiles] = useState<string[]>();
+	useEffect(() => {
+		getFiles().then(r=>{
+			const files = r.filter((file)=>{
+				const fileName = file.split('/').pop() || "";
+				const [name, extension] = fileName.split('.');
+				return parseInt(name).toString() === name && extension === 'png';
+			});
+			setExistingFiles(files);
+			setInternalLoading(false);
+		})
+	}, []);
+	
 	const {width} = useWindowDimensions();
 	const {
 		images,
 		isLoading,
 		refreshImages,
 	} = useTaskImages();
+	
+	const [displayImages, setDisplayImages] = useState<any>([])
 
 	useEffect(() => {
-		if (images.length) return;
-		refreshImages();
-	}, [images]);
+		if (images.length || internalLoading) return;
+		if(existingFiles?.length){
+			setDisplayImages(existingFiles);
+		} else {
+			refreshImages().then(r => setDisplayImages(images));
+		}
+	}, [images, internalLoading]);
 
 	if (isLoading || !images) return (
 		<Text >IS LOADING</Text >
@@ -29,8 +50,8 @@ const ImageDemo = () => {
 
 	const AllTasks = () => {
 		let toReturn = [];
-		for (let i = 0; i < images.length; i++) {
-			const fullUrl = images[i].full_url;
+		for (let i = 0; i < displayImages.length; i++) {
+			const fullUrl = typeof displayImages[i] === 'string' ? displayImages[i] : displayImages[i].full_url;
 			toReturn.push(
 				<TouchableOpacity key={i} onPress={() => router.push({pathname: "/draw", params: {task: fullUrl}})} >
 					<Image resizeMethod={'auto'} style={styles.taskImg} source={{uri: fullUrl}} />
@@ -60,12 +81,16 @@ const ImageDemo = () => {
 			marginBottom: 10,
 		}
 	})
-
+	if(internalLoading || isLoading){
+		return (<Text>Loading</Text>);
+	}
+	
 	return (
 		<>
 			<ScrollView >
 				<View style={[styles.scrollView]} >
 					<AllTasks />
+					<Button title={"Refresh images"}></Button>
 				</View >
 			</ScrollView >
 		</>
