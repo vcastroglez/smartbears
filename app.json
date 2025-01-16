@@ -1,54 +1,55 @@
 {
   "expo": {
-    "name": "smartbears",
-    "slug": "smartbears",
-    "version": "1.0.1",
-    "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "taskpainter",
-    "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.smartbears.taskpainter"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.smartbears.taskpainter",
-      "permissions": [
-        "android.permission.READ_EXTERNAL_STORAGE",
-        "android.permission.WRITE_EXTERNAL_STORAGE",
-        "android.permission.ACCESS_MEDIA_LOCATION"
-      ]
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/icon.png"
-    },
-    "plugins": [
-      "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ],
-      [
-        "expo-media-library",
-        {
-          "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos."
-        }
-      ]
-    ],
-    "experiments": {
-      "typedRoutes": true
-    }
+	"name": "smartbears",
+	"slug": "smartbears",
+	"version": "1.0.1",
+	"orientation": "portrait",
+	"icon": "./assets/images/icon.png",
+	"scheme": "taskpainter",
+	"userInterfaceStyle": "automatic",
+	"newArchEnabled": true,
+	"ios": {
+	  "supportsTablet": true,
+	  "bundleIdentifier": "com.smartbears.taskpainter"
+	},
+	"android": {
+	  "adaptiveIcon": {
+		"foregroundImage": "./assets/images/icon.png",
+		"backgroundColor": "#ffffff"
+	  },
+	  "package": "com.smartbears.taskpainter",
+	  "permissions": [
+		"android.permission.READ_EXTERNAL_STORAGE",
+		"android.permission.WRITE_EXTERNAL_STORAGE",
+		"android.permission.ACCESS_MEDIA_LOCATION"
+	  ],
+	  "versionCode": 2
+	},
+	"web": {
+	  "bundler": "metro",
+	  "output": "static",
+	  "favicon": "./assets/images/icon.png"
+	},
+	"plugins": [
+	  "expo-router",
+	  [
+		"expo-splash-screen",
+		{
+		  "image": "./assets/images/icon.png",
+		  "imageWidth": 200,
+		  "resizeMode": "contain",
+		  "backgroundColor": "#ffffff"
+		}
+	  ],
+	  [
+		"expo-media-library",
+		{
+		  "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos."
+		}
+	  ]
+	],
+	"experiments": {
+	  "typedRoutes": true
+	}
   }
 }
